@@ -1,0 +1,118 @@
+<html>
+<head> 
+    <style type="text/css">
+        body{
+            background-color: darkblue;
+            color: aqua;
+                text-align : center;
+        }
+        div{
+            width: 50%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        div.longText {
+            border: 5px solid white;
+        }
+        
+        div.shortText {
+            background-color: red;
+        }
+        
+        div.clicked{
+            background-color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Personal Info App</h1>
+    <div>
+    <h3>My Summer</h3>
+    <p>Big Summer! I Started by going to Michigan for a week then from there I went to Lebanon for a month where I went SkyDiving and Snake Hunting then I went To Turkey for 5 days which is my favorite place in the world and then I came back to Toledo where I started going to the gym everyday again and I got my job back!!!!!!</p>
+        </div>
+     <img src="Kendall%20Jenner.jpg" width=300 id="img1">
+        <div>
+        <p>Kendall Jenner is a person that I really like. She is the highest paid model of 2017</p>
+        </div>
+    
+        <img src="Wayne%20Rooney.jpg" width=300 id="img2">
+        <div>
+        <p>Rooney is one of the best soccer players of all time. He played for the teams Manchester United, Everton, DC United, and in 2020 he will play for Derby County </p>
+        </div>
+    
+        <img src="CM%20Punk.jpg" width=300 id="img3">
+        <div>
+        <p>CM Punk is the greastest wrestler ever. He Also does MMA Commentary and he he has an MMA Record of 0-2. </p>
+        </div>
+        <script>
+        //let name = "Ty Tarraf"
+        //let age = 18
+        //Create an object called person
+        let person = {
+            //key : value
+            "firstName" : "Ty",
+            "lastName" : "Tarraf",
+            "age" : 18,
+            "favColor" : "Green",
+            "sibling" : ["Amal","Houda","Sanaa"],
+            "favArtists": ["Rihanna","Pink","Chris Brown"]
+            
+        }
+        console.log(person)
+        console.log(person.age)
+        
+       // let elem = document.createElement('h3')
+       // elem.innerHTML = person.firstname
+       // document.body.appendChild(elem)
+            
+        let elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Name</h3> ${person.firstName} ${person.lastName}`
+        document.body.appendChild(elem)
+            
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Age</h3> ${person.age}`
+        document.body.appendChild(elem)
+            
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Favorite Color</h3> ${person.favColor}`
+        document.body.appendChild(elem)
+            
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>My Siblings</h3> ${person.sibling}`
+        document.body.appendChild(elem)
+            
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>My Favorite Artists</h3> ${person.favArtists}`
+        document.body.appendChild(elem)
+            
+        let divs = document.querySelectorAll('div');
+        for (let i = 0; i < divs.length; i++){
+        let div = divs[i]
+        div.addEventListener('click',handleClick);
+        
+        }
+        
+        function handleClick(event){
+            //event.target.style.backgroundColor = 'white';
+            event.target.classList.toggle('clicked');
+        }
+        document.querySelector('#img1').addEventListener('click',handleImgClick)
+        
+        function handleImgClick(event) {
+            if (event.target.width == 300)
+                event.target.width = 100
+            else
+                event.target.width = 300
+        }
+    </script>
+       
+
+
+</body>
+</html>
